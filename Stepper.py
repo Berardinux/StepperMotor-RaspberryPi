@@ -1,3 +1,5 @@
+# Voltage supplyed was 10V and the VREF was .45V
+
 from time import sleep
 import RPi.GPIO as GPIO
 
