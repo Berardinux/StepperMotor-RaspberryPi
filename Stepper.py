@@ -7,7 +7,7 @@ DIR = 20  # Direction pin
 STEP = 21  # Step pin
 CW = 1  # Clockwise rotation
 CCW = 0  # Counterclockwise rotation
-SPR = 800  # Steps per revolution (for 1.8 degree stepper motor)
+SPR = 800 
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
