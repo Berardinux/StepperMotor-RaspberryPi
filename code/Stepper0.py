@@ -7,7 +7,7 @@ DIR = 20  # Direction pin
 STEP = 21  # Step pin
 CW = 1  # Clockwise rotation
 CCW = 0  # Counterclockwise rotation
-SPR = 800 
+SPR = 200
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
@@ -26,11 +26,11 @@ def step_motor(direction, steps, delay):
         sleep(delay)
 
 try:
-    step_motor(CW, SPR * 8, 0.00005)
+    step_motor(CW, SPR, 0.0005)
 
     sleep(1)
 
-    step_motor(CCW, SPR * 8, 0.0005)
+    step_motor(CCW, SPR, 0.005)
 
 except KeyboardInterrupt:
     print("Program interrupted by user")
