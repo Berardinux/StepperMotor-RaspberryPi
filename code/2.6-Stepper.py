@@ -32,7 +32,7 @@ try:
   while True:
     
     current_switch_state = pi.read(SWITCH)
-    if current_switch_state != current_switch_state:
+    if prev_switch_state != current_switch_state:
       Ramp()
     
     print(prev_switch_state + current_switch_state)
