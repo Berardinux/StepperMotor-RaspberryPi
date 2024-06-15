@@ -30,13 +30,15 @@ def Ramp():
 try:
   prev_switch_state = pi.read(SWITCH)
   while True:
+    
     current_switch_state = pi.read(SWITCH)
     if current_switch_state != current_switch_state:
       Ramp()
-    prev_switch_state = current_switch_state
+    
     print(prev_switch_state + current_switch_state)
     pi.write(DIR, pi.read(SWITCH))
     sleep(.5)
+    prev_switch_state = current_switch_state
 
 
 except KeyboardInterrupt:
