@@ -18,6 +18,6 @@ GPIO.output(20, 1)
 # Step the motor
 for _ in range(200):
     GPIO.output(21, GPIO.HIGH)
-    sleep(.5)
+    sleep(.005)
     GPIO.output(21, GPIO.LOW)
-    sleep(.5)
+    sleep(.005)
