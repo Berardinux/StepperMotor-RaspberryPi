@@ -4,15 +4,11 @@ from time import sleep
 import RPi.GPIO as GPIO
 
 # Setup GPIO
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(20, GPIO.OUT) # 20 Direction pin
+GPIO.setmode(GPIO.BCM) # "BCM" is used to select GPIO number "BOARD" is used to select pin number
 GPIO.setup(21, GPIO.OUT)# 21 Step pin
 
-# Set direction
-GPIO.output(20, 0) # 1 or a 0 to change the direction
-
 # Step the motor
-for _ in range(200):
+for _ in range(4):
     GPIO.output(21, GPIO.HIGH)
     sleep(.5)
     GPIO.output(21, GPIO.LOW)
