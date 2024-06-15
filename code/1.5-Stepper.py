@@ -15,7 +15,10 @@ SPR = 200 # (360/2) = 200 steps per revolution
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
-GPIO.setup(M0, GPIO.OUT + M1, GPIO.OUT + M2, GPIO.OUT) # Microstepping pins
+
+GPIO.setup(M0, GPIO.OUT)
+GPIO.setup(M1, GPIO.OUT) # Microstepping pins
+GPIO.setup(M2, GPIO.OUT) 
 
 # Full Step          (000)
 # Half Step          (100)
