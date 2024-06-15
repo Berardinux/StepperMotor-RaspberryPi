@@ -17,3 +17,5 @@ for _ in range(200):
     sleep(.5)
     GPIO.output(21, GPIO.LOW)
     sleep(.5)
+
+GPIO.cleanup()
