@@ -16,7 +16,7 @@ pi.set_PWM_frequency(STEP, 500) # 500 pulses per second
 
 # For more info check out "rdagger68" on Youtube!
 
-def Ramp()
+def Ramp():
   for i in range(PPS, 0, -1):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, pi.read(SWITCH))
