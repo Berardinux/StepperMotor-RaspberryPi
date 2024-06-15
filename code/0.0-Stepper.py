@@ -3,36 +3,21 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-DIR = 20  # Direction pin
-STEP = 21  # Step pin
 CW = 1  # Clockwise rotation
 CCW = 0  # Counterclockwise rotation
 SPR = 200 # (360/2) = 200 steps per revolution
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(DIR, GPIO.OUT)
-GPIO.setup(STEP, GPIO.OUT)
+GPIO.setup(20, GPIO.OUT) # 20 Direction pin
+GPIO.setup(21, GPIO.OUT)# 21 Step pin
 
-def step_motor(direction, steps, delay):
-    # Set direction
-    GPIO.output(DIR, direction)
+# Set direction
+GPIO.output(20, 1)
 
-    # Step the motor
-    for _ in range(steps):
-        GPIO.output(STEP, GPIO.HIGH)
-        sleep(delay)
-        GPIO.output(STEP, GPIO.LOW)
-        sleep(delay)
-
-try:
-    step_motor(CW, SPR *4, 0.0005)
-
-    sleep(1)
-
-    step_motor(CCW, SPR, 0.005)
-
-except KeyboardInterrupt:
-    print("Program interrupted by user")
-finally:
-    GPIO.cleanup()
+# Step the motor
+for _ in range(200):
+    GPIO.output(21, GPIO.HIGH)
+    sleep(.5)
+    GPIO.output(21, GPIO.LOW)
+    sleep(.5)
