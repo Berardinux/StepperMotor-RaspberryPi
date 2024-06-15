@@ -7,7 +7,7 @@ DIR = 20  # Direction pin
 STEP = 21  # Step pin
 CW = 1  # Clockwise rotation
 CCW = 0  # Counterclockwise rotation
-SPR = 200
+SPR = 200 # (360/2) = 200 steps per revolution
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
@@ -26,7 +26,7 @@ def step_motor(direction, steps, delay):
         sleep(delay)
 
 try:
-    step_motor(CW, SPR, 0.0005)
+    step_motor(CW, SPR *4, 0.0005)
 
     sleep(1)
 
