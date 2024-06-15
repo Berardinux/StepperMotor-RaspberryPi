@@ -34,7 +34,6 @@ try:
     current_switch_state = pi.read(SWITCH)
     if prev_switch_state != current_switch_state:
       Ramp()
-    
     print(prev_switch_state + current_switch_state)
     pi.write(DIR, pi.read(SWITCH))
     sleep(.1)
