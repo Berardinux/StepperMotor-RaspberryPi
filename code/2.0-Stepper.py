@@ -11,7 +11,7 @@ pi.set_mode(SWITCH, pigpio.INPUT)
 pi.set_pull_up_down(SWITCH, pigpio.PUD_UP)
 
 pi.set_PWM_dutycycle(STEP, 128)
-pi.set_PWM_frequency(STEP, 250)
+pi.set_PWM_frequency(STEP, 1000)
 
 try:
   while True:
