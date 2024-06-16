@@ -9,7 +9,7 @@ M2 = 18
 DIR = 20
 STEP = 21
 SWITCH = 16
-PPS = 500
+PPS = 1000
 
 pi = pigpio.pi()
 
@@ -42,13 +42,13 @@ def Ramp(prev_switch_state):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, pi.read(prev_switch_state))
     sleep(.00005)
-    if i < 250:
+    if i < PPS/2:
       -i
-  for i in range(0, 500, +1):
+  for i in range(0, PPS, +1):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, pi.read(SWITCH))
     sleep(.00005)
-    if i < 250:
+    if i < PPS/2:
       +i
   print("Ramp")
 
