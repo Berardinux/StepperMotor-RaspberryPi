@@ -42,10 +42,14 @@ def Ramp():
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, pi.read(SWITCH))
     sleep(.00005)
+    if i < 250:
+      -i
   for i in range(0, 500, +1):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, pi.read(SWITCH))
     sleep(.00005)
+    if i < 250:
+      +i
   print("Ramp")
 
 try:
