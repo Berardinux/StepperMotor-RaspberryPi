@@ -29,7 +29,7 @@ GPIO.setup(M2, GPIO.OUT)
 
 GPIO.output(M0, GPIO.HIGH)
 GPIO.output(M1, GPIO.LOW) # Microstepping output
-GPIO.output(M2, GPIO.HIGH)
+GPIO.output(M2, GPIO.LOW)
 
 def step_motor(direction, steps, delay):
     # Set direction

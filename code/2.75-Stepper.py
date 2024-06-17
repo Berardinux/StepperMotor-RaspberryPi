@@ -23,10 +23,9 @@ pi.set_pull_up_down(SWITCH, pigpio.PUD_UP)
 pi.set_PWM_dutycycle(STEP, 128)  # 50% On 50% Off
 pi.set_PWM_frequency(STEP, PPS)  # 1000 pulses per second
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(M0, GPIO.OUT)
-GPIO.setup(M1, GPIO.OUT)  # Microstepping pins
-GPIO.setup(M2, GPIO.OUT)
+pi.set_mode(M0, pigpio.OUTPUT)
+pi.set_mode(M1, pigpio.OUTPUT) # Microstepping pins
+pi.set_mode(M2, pigpio.OUTPUT)
 
 # Set microstepping mode
 # Full Step          (000)
@@ -35,9 +34,10 @@ GPIO.setup(M2, GPIO.OUT)
 # Eigth Step         (110)
 # Sixteenth Step     (001)
 # Thirty-Second Step (101)
-GPIO.output(M0, GPIO.HIGH)
-GPIO.output(M1, GPIO.LOW)  # Microstepping output
-GPIO.output(M2, GPIO.HIGH)
+
+pi.write(M0, 1)
+pi.write(M1, 0) # Microstepping output
+pi.write(M2, 0)
 
 def Ramp(prev_switch_state):
   start = int(PPS / 1.5)  # Calculate starting point and convert to integer
