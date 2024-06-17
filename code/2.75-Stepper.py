@@ -41,6 +41,8 @@ def Ramp(prev_switch_state):
   for i in range(PPS, 0, -1):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, pi.read(prev_switch_state))
+    print("Previous: " + prev_switch_state)
+    print("Current: " + current_switch_state)
     sleep(.00005)
     if i < PPS/2:
       -i
@@ -69,3 +71,4 @@ except KeyboardInterrupt:
 finally:
   pi.set_PWM_dutycycle(STEP, 0)
   pi.stop()
+  GPIO.cleanup()
