@@ -5,7 +5,7 @@ DIR = 20  # Direction pin
 STEP = 21  # Step pin
 CW = 1  # Clockwise rotation
 CCW = 0  # Counterclockwise rotation
-SPR = 200 # (360/2) = 200 steps per revolution
+SPR = 200 # (360/1.8) = 200 steps per revolution
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
