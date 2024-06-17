@@ -40,14 +40,18 @@ def Ramp(prev_switch_state):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, prev_switch_state)
     sleep(.0000005)
-    if i < PPS/2:
+    if i < PPS/1.5:
       -i
+      if i < PPS/2:
+        -i
   for i in range(0, PPS, +1):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, current_switch_state)
     sleep(.0000005)
     if i < PPS/2:
       +i
+      if i < PPS/2:
+        -i
   print("Previous: ", prev_switch_state)
   print("Current: ", current_switch_state)
   print("Ramp")
