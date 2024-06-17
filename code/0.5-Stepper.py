@@ -12,8 +12,8 @@ GPIO.output(20, 0) # 1 or a 0 to change the direction
 # Step the motor
 for _ in range(200):
     GPIO.output(21, GPIO.HIGH)
-    sleep(.005)
+    sleep(.0025)
     GPIO.output(21, GPIO.LOW)
-    sleep(.005)
+    sleep(.0025)
 
 GPIO.cleanup()
