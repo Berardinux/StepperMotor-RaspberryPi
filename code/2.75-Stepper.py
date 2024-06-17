@@ -59,6 +59,7 @@ try:
   while True:
     
     current_switch_state = pi.read(SWITCH)
+    print("In While Loop Current: ", current_switch_state)
     if prev_switch_state != current_switch_state:
       Ramp(prev_switch_state)
     pi.write(DIR, pi.read(SWITCH))
