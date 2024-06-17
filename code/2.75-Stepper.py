@@ -37,7 +37,7 @@ GPIO.setup(M2, GPIO.OUT)
 # Thirty-Second Step (101)
 GPIO.output(M0, GPIO.HIGH)
 GPIO.output(M1, GPIO.LOW)  # Microstepping output
-GPIO.output(M2, GPIO.LOW)
+GPIO.output(M2, GPIO.HIGH)
 
 def Ramp(prev_switch_state):
   start = int(PPS / 1.5)  # Calculate starting point and convert to integer
