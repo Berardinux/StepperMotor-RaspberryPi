@@ -40,13 +40,13 @@ GPIO.output(M2, GPIO.LOW)
 def Ramp(prev_switch_state):
   for i in range(PPS, 0, -1):
     pi.set_PWM_frequency(STEP, i)
-    pi.write(DIR, pi.read(prev_switch_state))
+    pi.write(DIR, prev_switch_state)
     sleep(.00005)
     if i < PPS/2:
       -i
   for i in range(0, PPS, +1):
     pi.set_PWM_frequency(STEP, i)
-    pi.write(DIR, pi.read(SWITCH))
+    pi.write(DIR, current_switch_state)
     sleep(.00005)
     if i < PPS/2:
       +i
