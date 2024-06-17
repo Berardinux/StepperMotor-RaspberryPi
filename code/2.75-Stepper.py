@@ -76,4 +76,3 @@ except KeyboardInterrupt:
 finally:
   pi.set_PWM_dutycycle(STEP, 0)
   pi.stop()
-  GPIO.cleanup()
