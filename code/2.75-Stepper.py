@@ -17,7 +17,7 @@ pi.set_mode(SWITCH, pigpio.INPUT)
 pi.set_pull_up_down(SWITCH, pigpio.PUD_UP)
 
 pi.set_PWM_dutycycle(STEP, 128) # 50% On 50% Off 
-pi.set_PWM_frequency(STEP, 500) # 500 pulses per second 
+pi.set_PWM_frequency(STEP, 2000) # 500 pulses per second 
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(M0, GPIO.OUT)
