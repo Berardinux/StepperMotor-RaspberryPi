@@ -36,22 +36,14 @@ GPIO.output(M1, GPIO.LOW) # Microstepping output
 GPIO.output(M2, GPIO.LOW)
 
 def Ramp(prev_switch_state):
-  for i in range(PPS, 100, -1):
+  for i in range(PPS/1.5, 100, -4):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, prev_switch_state)
     sleep(.0000005)
-    if i < PPS/1.5:
-      -i
-      if i < PPS/2:
-        -i
-  for i in range(100, PPS, +1):
+  for i in range(100, PPS/1.5, +4):
     pi.set_PWM_frequency(STEP, i)
     pi.write(DIR, current_switch_state)
     sleep(.0000005)
-    if i < PPS/1.5:
-      +i
-      if i < PPS/2:
-        -i
   print("Previous: ", prev_switch_state)
   print("Current: ", current_switch_state)
   print("Ramp")
