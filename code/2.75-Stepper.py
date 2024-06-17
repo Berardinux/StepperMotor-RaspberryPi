@@ -31,8 +31,8 @@ GPIO.setup(M2, GPIO.OUT)
 # Sixteenth Step     (001)
 # Thirty-Second Step (101)
 
-GPIO.output(M0, GPIO.HIGH)
-GPIO.output(M1, GPIO.LOW) # Microstepping output
+GPIO.output(M0, GPIO.LOW)
+GPIO.output(M1, GPIO.HIGH) # Microstepping output
 GPIO.output(M2, GPIO.LOW)
 
 def Ramp(prev_switch_state):
