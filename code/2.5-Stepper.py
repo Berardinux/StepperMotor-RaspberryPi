@@ -19,11 +19,11 @@ pi.set_PWM_frequency(STEP, 500) # 500 pulses per second
 def Ramp():
   for i in range(PPS, 0, -1):
     pi.set_PWM_frequency(STEP, i)
-    pi.write(DIR, pi.read(SWITCH))
+    pi.write(DIR, prev_switch_state)
     sleep(.00005)
   for i in range(0, 500, +1):
     pi.set_PWM_frequency(STEP, i)
-    pi.write(DIR, pi.read(SWITCH))
+    pi.write(DIR, current_switch_state)
     sleep(.00005)
   print("Ramp")
 

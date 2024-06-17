@@ -40,40 +40,40 @@ GPIO.output(M1, GPIO.LOW)  # Microstepping output
 GPIO.output(M2, GPIO.LOW)
 
 def Ramp(prev_switch_state):
-    start = int(PPS / 1.5)  # Calculate starting point and convert to integer
-    end = 100
+  start = int(PPS / 1.5)  # Calculate starting point and convert to integer
+  end = 100
 
-    # Decrement loop
-    for i in range(start, end, SUB):
-        pi.set_PWM_frequency(STEP, i)
-        pi.write(DIR, prev_switch_state)
-        sleep(0.0000005)
+  # Decrement loop
+  for i in range(start, end, SUB):
+    pi.set_PWM_frequency(STEP, i)
+    pi.write(DIR, prev_switch_state)
+    sleep(0.0000005)
 
-    # Increment loop
-    for i in range(end, start, ADD):
-        pi.set_PWM_frequency(STEP, i)
-        pi.write(DIR, current_switch_state)
-        sleep(0.0000005)
+  # Increment loop
+  for i in range(end, start, ADD):
+    pi.set_PWM_frequency(STEP, i)
+    pi.write(DIR, current_switch_state)
+    sleep(0.0000005)
 
-    print("Previous: ", prev_switch_state)
-    print("Current: ", current_switch_state)
-    print("Ramp")
+  print("Previous: ", prev_switch_state)
+  print("Current: ", current_switch_state)
+  print("Ramp")
 
 try:
-    prev_switch_state = pi.read(SWITCH)
-    while True:
-        current_switch_state = pi.read(SWITCH)
-        if prev_switch_state != current_switch_state:
-            Ramp(prev_switch_state)
-        pi.write(DIR, pi.read(SWITCH))
-        prev_switch_state = current_switch_state
-        sleep(0.1)
+  prev_switch_state = pi.read(SWITCH)
+  while True:
+    current_switch_state = pi.read(SWITCH)
+    if prev_switch_state != current_switch_state:
+      Ramp(prev_switch_state)
+      pi.write(DIR, pi.read(SWITCH))
+      prev_switch_state = current_switch_state
+      sleep(0.1)
 
-        print("In While Loop Current: ", pi.read(SWITCH))
+      print("In While Loop Current: ", pi.read(SWITCH))
 
 except KeyboardInterrupt:
-    print("\nCtrl -C pressed.")
+  print("\nCtrl -C pressed.")
 finally:
-    pi.set_PWM_dutycycle(STEP, 0)
-    pi.stop()
-    GPIO.cleanup()
+  pi.set_PWM_dutycycle(STEP, 0)
+  pi.stop()
+  GPIO.cleanup()
