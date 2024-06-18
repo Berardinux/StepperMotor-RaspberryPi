@@ -7,7 +7,7 @@ GPIO.setup(20, GPIO.OUT) # 20 Direction pin
 GPIO.setup(21, GPIO.OUT)# 21 Step pin
 
 # Set direction
-GPIO.output(20, 0) # 1 or a 0 to change the direction
+GPIO.output(20, 1) # 1 or a 0 to change the direction
 
 # Step the motor
 for _ in range(200):
